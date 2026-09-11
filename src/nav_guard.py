@@ -51,7 +51,7 @@ def detect_mcp_providers() -> list[str]:
                     name_lower = name.lower()
                     if "serena" in name_lower:
                         providers.append("serena")
-                    elif "cclsp" in name_lower or "lsp" in name_lower:
+                    elif "cclsp" in name_lower:
                         providers.append("cclsp")
             except Exception:
                 pass
