@@ -1,6 +1,6 @@
 # Guia de Publicacion e Instalacion en el Marketplace de Antigravity (AGY)
 
-Este documento detalla el procedimiento oficial y estandarizado para distribuir, instalar y publicar el **Antigravity LSP Enforcement Kit** en el ecosistema de **Google Antigravity CLI (gy)**.
+Este documento detalla el procedimiento oficial y estandarizado para distribuir, instalar y publicar el **Antigravity LSP Enforcement Kit** en el ecosistema de **Google Antigravity CLI (agy)**.
 
 ---
 
@@ -10,14 +10,14 @@ Antigravity CLI gestiona sus plugins a traves de tres mecanismos complementarios
 
 1. **Instalacion Directa por Repositorio Git (Recomendado / Inmediato)**:
    Cualquier usuario con Antigravity CLI puede instalar este plugin apuntando al repositorio de GitHub:
-   `ash
+   `bash
    agy plugin install https://github.com/dbqp01/LSP-Antigravity-CLI
    `
    El CLI clona el repositorio en ~/.gemini/antigravity-cli/plugins/lsp-enforcement-kit, registra las herramientas MCP y activa los hooks de ciclo de vida automaticamente.
 
 2. **Instalacion Local / Desarrollo**:
    Para probar o instalar cambios locales en cualquier entorno:
-   `ash
+   `bash
    agy plugin install .
    `
 
@@ -28,7 +28,7 @@ Antigravity CLI gestiona sus plugins a traves de tres mecanismos complementarios
 
 ## 2. Requisitos de Estructura para el Marketplace de AGY
 
-Para que un plugin sea valido y procesado correctamente por gy plugin validate y el Marketplace, la raiz del repositorio debe contener los siguientes archivos:
+Para que un plugin sea valido y procesado correctamente por agy plugin validate y el Marketplace, la raiz del repositorio debe contener los siguientes archivos:
 
 `	ext
 ├── plugin.json                 # [REQUERIDO] Manifiesto del plugin con nombre, version y descripcion
@@ -40,7 +40,7 @@ Para que un plugin sea valido y procesado correctamente por gy plugin validate 
 │   └── lsp-diagnostics/
 │       └── SKILL.md
 └── src/                        # [CODIGO] Codigo ejecutable del plugin (Python stdlib)
-`
+```
 
 ---
 
@@ -48,10 +48,10 @@ Para que un plugin sea valido y procesado correctamente por gy plugin validate 
 
 Antes de publicar o taggear una nueva version, ejecuta siempre el validador oficial de Antigravity:
 
-`ash
+```bash
 # Validar el plugin en el directorio actual
 agy plugin validate .
-`
+```
 
 **Salida esperada:**
 `	ext
@@ -61,7 +61,7 @@ agy plugin validate .
           - commands    : skipped (not found)
           ✔ mcpServers  : 1 processed
           ✔ hooks       : 1 processed
-`
+```
 
 ---
 
@@ -80,7 +80,7 @@ agy plugin validate .
    `
 
 2. **Crear el Tag y Release en Git**:
-   `ash
+   `bash
    git add .
    git commit -m release: v1.2.0 standardized marketplace structure
    git tag -a v1.2.0 -m Release v1.2.0 for Antigravity Plugin Marketplace
@@ -89,7 +89,7 @@ agy plugin validate .
 
 3. **Generar un GitHub Release**:
    - Ir a https://github.com/dbqp01/LSP-Antigravity-CLI/releases/new.
-   - Seleccionar el tag 1.2.0.
+   - Seleccionar el tag v1.2.0.
    - Publicar el release con las notas de version de docs/CHANGELOG.md.
 
 ---
@@ -103,7 +103,7 @@ Para registrar el plugin en los catalogos publicos oficiales:
    - Proporcionar la URL del repositorio Git (https://github.com/dbqp01/LSP-Antigravity), la descripcion, tags (lsp, quality-gate, developer-tools, python, 	ypescript) y licencia MIT.
 
 2. **Comandos de Gestion para Usuarios Finales**:
-   `ash
+   `bash
    # Listar plugins instalados
    agy plugin list
 

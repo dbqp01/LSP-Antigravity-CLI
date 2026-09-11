@@ -10,9 +10,9 @@ This skill allows the agent or user to verify the status of active Language Serv
 ## Usage
 
 Run the diagnostic status check:
-`ash
+```bash
 python src/lsp_audit.py status
-`
+```
 
 This will report:
 - Active Language Server Protocol (LSP) availability (pyright, typescript-language-server, rust-analyzer, gopls, intelephense, astro-ls).

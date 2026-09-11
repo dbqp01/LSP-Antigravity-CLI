@@ -16,6 +16,9 @@ Specifications:
 """
 import sys
 import json
+import os
+if os.path.dirname(os.path.abspath(__file__)) not in sys.path:
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from lsp_manager import GLOBAL_LSP_MANAGER
 
 SERVER_NAME = "antigravity-lsp-kit"
